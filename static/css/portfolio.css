@@ -1,0 +1,132 @@
+/*
+ **************************
+ * =PORTFOLIO
+ **************************
+*/
+.b-portfolio {
+	display: block;
+	clear: both;
+	overflow: hidden;
+}
+
+.b-project {
+	float: left;
+	display: block;
+	width: 250px;
+	height: 420px;
+	border: 1px solid #d9d9d9;
+	box-sizing: border-box;
+	font-size: 10px;
+	margin-right: 66px;
+	margin-bottom: 60px;
+}
+
+.b-project:nth-child(4n){
+	margin-right: 0;
+	/*background: green;*/
+}
+
+.b-project img {
+	background: rgba(95, 181, 193, 0.1);
+	display: block;
+	/*width: 248px;*/
+	/*height: 248px;*/
+}
+
+.b-project-img {
+	text-decoration: none;
+}
+
+.b-project__title {
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 20px 20px 10px;
+	display: block;
+}
+
+.b-project__title:hover {
+	text-decoration: underline;
+}
+
+.b-project__date {
+	margin: 3px 20px;
+	display: block;
+	color: #999;
+}
+
+.b-project__description {
+	margin: 10px 20px;
+}
+
+.b-project__more {
+	margin: 0 20px;
+	text-decoration: none;
+}
+
+.b-project__more:before {
+	content: '↬ ';
+	font-size: 15px;
+}
+
+
+
+
+.b-clients__title {
+	display: none;
+}
+
+.b-clients {
+	display: block;
+	clear: both;
+	margin-top: 20px;
+}
+
+.b-client {
+	opacity: 0.8;
+	float: left;
+	margin: 0;
+	margin-right: 50px;
+	margin-bottom: 50px;
+	display: block;
+	padding: 10px;
+	background: #fdfdfd;
+	border: 1px solid #eee;
+	width: 200px;
+	text-align: center;
+	box-sizing: border-box;
+	-webkit-transition: all 0.7s ease-out;  /* Saf3.2+, Chrome */
+	-moz-transition: all 0.7s ease-out;  /* FF4+ */
+	-ms-transition: all 0.7s ease-out;  /* IE10 */
+	-o-transition: all 0.7s linear;  /* Opera 10.5+ */
+	transition: all 0.7s ease-out;
+
+}
+
+.b-client:nth-child(5n) {
+	margin-right: 0;
+}
+
+.b-client:hover {
+	opacity: 1;
+}
+
+.b-client__logo {
+	padding: 10px;
+	width: 170px;
+	margin: 30px 0;
+	box-sizing: content-box;
+}
+
+.b-client__name {
+	padding: 0;
+	margin: 0;
+	font-size: 18px;
+	background-color: #999;
+	color: transparent;
+	text-shadow: 0px 0px 2px rgba(255,255,255,0.5);
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+	font-weight: bold;
+}

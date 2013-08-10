@@ -1,0 +1,25 @@
+{% load i18n %}
+{% load thumbnail %}
+
+<div class="b-project"
+	{# data-category='{{ project.category.slug }}' #}
+	{# data-client='{{ project.client.slug }}' #}
+>
+	<a href="{{ project.get_absolute_url }}" class='b-project-img'>
+	{% if project.img %}
+		{% thumbnail project.img "250x250" as im %}
+			<img src="{{ im.url }}" alt="{{ project.name }}"
+				style="padding:{{ im|margin:"250x250" }}"
+			>
+		{% endthumbnail %}
+	{% endif %}
+	</a>
+	<a href="{{ project.get_absolute_url }}" class="b-project__title">
+		{{ project.name }}
+	</a>
+	<time class='b-project__date'>{{ project.created_at|date:"j E, Y"}}</time>
+	<div class='b-project__description'>{{ project.description }}</div>
+	<a href="{{ project.get_absolute_url }}" class='b-project__more'>
+		{% trans "More" %}
+	</a>
+</div><!-- b-project -->

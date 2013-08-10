@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+	<h1 class='b-clients__title'>{% trans 'Clietns' %}</h1>
+	<div class='b-clients'>
+	{% for client in clients %}
+		<figure class='b-client'>
+			<a href='{{ client.get_absolute_url }}'>
+				{% if client.logo %}
+					<img src='{{ client.logo.url }}' alt='{{ client.name }}' class='b-client__logo' title='{{ client.name }}'>
+				{% endif %}
+				<figcaption class='b-client__name'>{{ client.name }}</figcaption>
+			</a>
+		</figure>
+	{% endfor %}
+	</div>
+{% endblock %}

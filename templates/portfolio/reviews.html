@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+	<h1>{% trans "Reviews" %}</h1>
+	<div id='b-reviews'>
+		{% for review in reviews %}
+			<a href='{{ review.img.url }}'>
+				<img src='{{ review.img.url }}' alt='{{ review.name }}'>
+			</a>
+		{% endfor %}
+	</div>
+{% endblock %}
