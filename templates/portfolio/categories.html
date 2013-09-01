@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+	{# <h1 class='b-categories__title'>{% trans 'Portfolio categories' %}</h1> #}
+	<div class='b-portfolio-categories'>
+	{% for category in categories %}
+		<div class='b-portfolio-category'>
+			<h2 class='b-portfolio-category-name'>
+				<a href='{{ category.get_absolute_url }}' class='b-category-name__link'>
+					{{ category.name }}
+				</a>
+			</h2>
+			<span class='b-portfolio-category__count'>
+				{% trans "Total" %}: {{ category.category_project.count }}
+			</span>
+			<div class="b-portfolio-category-list">
+				{% for project in category.category_project.all %}
+					<a href="{{ project.get_absolute_url }}" class="b-project-item__title">
+						{{ project.name }}
+					</a>
+					<time class='b-project__date'>{{ project.created_at|date:"j E, Y"}}</time>
+				{% endfor %}
+			</div>
+		</div>
+
+	{% endfor %}
+	</div>
+
+
+
+{% endblock %}

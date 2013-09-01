@@ -4,56 +4,92 @@
 
 {% block content %}
 	<h1 class='b-project__title'>{{ project.name }}</h1>
-	<br>
-
 	<div class="b-project-info">
-		<p><b>{% trans "Category" %}:</b> {{ project.category }}</p>
-		<p><b>{% trans "Client" %}:</b> {{ project.client }}</p>
-		{# <p><img src="{{ project.img.url }}" alt="{{ project.name }}" title='{{ project.name }}'></p> #}
-		<p><b>{% trans "Description" %}:</b> {{ project.description }}</p>
-		<p><a href="//{{ project.www }}">{{ project.www }}</a></p>
-		<p><b>{% trans "Created At" %}:</b> {{ project.created_at }}</p>
-		<p><b>{% trans "Upadated At" %}:</b> {{ project.updated_at }}</p>
+
+		{# <p><b>{% trans "Category" %}:</b> {{ project.category }}</p> #}
+		{# <p><b>{% trans "Client" %}:</b> {{ project.client }}</p> #}
+
+			{% thumbnail project.img "30x30" as im %}
+				<img src="{{ im.url }}" alt="" style="padding:{{ im|margin:"30x30" }}; margin-bottom: -7px;">
+			{% endthumbnail %}
+			<a href="//{{ project.www }}" class='b-project__www'>{{ project.www }}</a>
+
+		<p class="b-project-decription">
+			{% if project.description %}
+				<p>{{ project.description }}</p>
+			{% endif %}
+		</p>
+		<time class="b-project__date">{{ project.created_at|date:"Y.m.d" }}</time>
+		{% comment %}
+			
+			<div class="b-project-meta">
+		{% if project.www %}
+			<hr>
+			{% thumbnail project.img "20x20" as im %}
+				<img src="{{ im.url }}" alt="" style="padding:{{ im|margin:"20x20" }}; margin-bottom: -5px;">
+			{% endthumbnail %}
+			<a href="//{{ project.www }}">{{ project.www }}</a>
+			<hr>
+
+			<br><br>
+		{% endif %}
+
+				<b>{% trans "Дата изготовления" %}:</b><br>
+					{{ project.created_at|date:"Y.m.d" }}<br><br>
+				<b>{% trans "Гарантия" %}:</b><br>
+					3 года<br><br>
+				<b>{% trans "Срок годности" %}:</b><br>
+					не ограничен<br><br>
+
+				<hr>
+
+				<h3>Участники:</h3>
+				<b>Дизайнеры</b><br>
+				Балтрунас Станислав<br><br>
+
+				<b>Технические директоры</b><br>
+				Станислав Балтрунас<br><br>
+
+				<b>Контент менеджеры</b><br>
+				Stanislav Baltrunas<br><br>
+			</div>
+		{% endcomment %}
+
+		{# <p><b>{% trans "Created At" %}:</b> {{ project.created_at }}</p> #}
+		{# <p><b>{% trans "Upadated At" %}:</b> {{ project.updated_at }}</p> #}
 	</div>
 
 	<div class='b-project-detail'>
 		{% for image in project.project_images.all %}
-			<div class="b-image" style='display: block; clear: both; margin-bottom: 80px; overflow: hidden;'>
+		</figure>
+			<figure class="b-image">
+				{% thumbnail image.img "980" as im %}
+					<img src="{{ im.url }}" alt="{{ image.name }}"  class='b-image__img'>
+				{% endthumbnail %}
 
+				{{ image.description|safe }}
 
-{% thumbnail image.img "700" as im %}
-				<img src="{{ im.url }}" alt="{{ image.name }}"  style='width: 700px; float: left; padding: 50px; background: #afd;'>
-{% endthumbnail %}
-				
-				<div style='width: 350px; float: right;'>
-
-
-{% if forloop.counter == 1 %} 
-
-
-{% endif %}
-
-
-
-					<h2>{{ image.name }}</h2>
-					<p>{{ image.description }}</p>
-					<a href="#">{% trans "Full size image" %}</a>
 				</div>
-			</div>
+				<figcaption class='b-image__caption'>{{ image.name }}</figcaption>
+			</figure>
 		{% endfor %}
 	</div>
 
 
 
 {% comment %}
-name
-slug
-project
-img
-description
-order
-public
-created_at
-updated_at
++ name
+? category
+? client
+- slug
+? img
++ description
++ www
+- order
+- sites
+- main
+- public
+? created_at
+? updated_at
 {% endcomment %}
 {% endblock %}

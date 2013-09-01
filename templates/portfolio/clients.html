@@ -1,18 +1,36 @@
 {% extends 'base.html' %}
+
 {% load i18n %}
+{% load thumbnail %}
 
 {% block content %}
 	<h1 class='b-clients__title'>{% trans 'Clietns' %}</h1>
 	<div class='b-clients'>
 	{% for client in clients %}
+	{% for client in clients %}
 		<figure class='b-client'>
 			<a href='{{ client.get_absolute_url }}'>
 				{% if client.logo %}
-					<img src='{{ client.logo.url }}' alt='{{ client.name }}' class='b-client__logo' title='{{ client.name }}'>
+					{% thumbnail client.logo "200x100" as im %}
+						<img src="{{ im.url }}" alt="{{ project.name }}"
+							style="padding:{{ im|margin:"200x100" }}" alt='{{ client.name }}' class='b-client__logo' title='{{ client.name }}'
+						>
+					{% endthumbnail %}
 				{% endif %}
 				<figcaption class='b-client__name'>{{ client.name }}</figcaption>
 			</a>
 		</figure>
 	{% endfor %}
+	{% endfor %}
 	</div>
+
+{% comment %}
+name
+slug
+logo
+description
+www
+order
+{% endcomment %}
+
 {% endblock %}

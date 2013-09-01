@@ -130,3 +130,17 @@
 	background-clip: text;
 	font-weight: bold;
 }
+
+.b-image {
+	display: block;
+	clear: both;
+	margin-bottom: 80px;
+	overflow: hidden;
+}
+
+.b-image__img {
+	/*width: 700px;*/
+	width: 100%;
+	float: left;
+	/*padding: 50px;*/
+}

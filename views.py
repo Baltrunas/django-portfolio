@@ -16,11 +16,11 @@ def clients(request):
 	return render_to_response('portfolio/clients.html', context, context_instance=RequestContext(request))
 
 
-def client_detail(request, slug):
+def client(request, slug):
 	context = {}
 	context['client'] = get_object_or_404(Client, public=True, slug=slug)
 	context['title'] = context['client'].name
-	return render_to_response('portfolio/client_detail.html', context, context_instance=RequestContext(request))
+	return render_to_response('portfolio/client.html', context, context_instance=RequestContext(request))
 
 
 def reviews(request):
@@ -30,15 +30,15 @@ def reviews(request):
 	return render_to_response('portfolio/reviews.html', context, context_instance=RequestContext(request))
 
 
-def portfolio(request):
+def categories(request):
 	context = {}
 	context['categories'] = Category.objects.filter(public=True)
 	context['projects'] = Project.objects.filter(public=True)
 	context['title'] = _('Categories')
-	return render_to_response('portfolio/portfolio.html', context, context_instance=RequestContext(request))
+	return render_to_response('portfolio/categories.html', context, context_instance=RequestContext(request))
 
 
-def portfolio_category(request, slug):
+def category(request, slug):
 	context = {}
 	context['category'] = get_object_or_404(Category, public=True, slug=slug)
 	context['projects'] = Project.objects.filter(public=True, category=context['category'])
@@ -46,7 +46,7 @@ def portfolio_category(request, slug):
 	return render_to_response('portfolio/category.html', context, context_instance=RequestContext(request))
 
 
-def portfolio_category_project(request, category_slug, project_slug):
+def project(request, category_slug, project_slug):
 	context = {}
 	context['project'] = get_object_or_404(Project, public=True, slug=project_slug)
 	context['title'] = context['project'].name

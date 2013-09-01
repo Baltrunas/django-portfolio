@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-13 15:27+0400\n"
+"POT-Creation-Date: 2013-09-01 19:37+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,102 +19,124 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: models.py:8 models.py:27 models.py:72
+#: models.py:14 models.py:43 models.py:68 models.py:91 models.py:122
 msgid "Name"
 msgstr "Имя"
 
-#: models.py:9 models.py:47
-msgid "URL"
-msgstr "URL"
+#: models.py:15 models.py:44 models.py:69 models.py:94 models.py:123
+msgid "Slug"
+msgstr "Ярлык"
 
-#: models.py:10
+#: models.py:15 models.py:44 models.py:69 models.py:94 models.py:123
+msgid ""
+"A slug is the part of a URL which identifies a page using human-readable "
+"keywords"
+msgstr ""
+
+#: models.py:18
 msgid "Logo"
 msgstr "Логотип"
 
-#: models.py:11 models.py:49 models.py:75
-msgid "Info"
-msgstr "Информация"
+#: models.py:20 models.py:70 models.py:98 models.py:128
+msgid "Description"
+msgstr "Описание"
 
-#: models.py:12 models.py:31 models.py:53
+#: models.py:21 models.py:99
+msgid "WWW"
+msgstr "WWW"
+
+#: models.py:22 models.py:52 models.py:71 models.py:100 models.py:129
 msgid "Order"
 msgstr "Сортировка"
 
-#: models.py:13 models.py:32 models.py:54
+#: models.py:24 models.py:53 models.py:72 models.py:101
+msgid "Sites"
+msgstr "Сайты"
+
+#: models.py:25 models.py:54 models.py:73 models.py:104 models.py:130
 msgid "Public"
 msgstr "Публикация"
 
-#: models.py:14 models.py:33 models.py:55
+#: models.py:26 models.py:55 models.py:74 models.py:105 models.py:131
 msgid "Created At"
 msgstr "Созданно"
 
-#: models.py:15 models.py:34 models.py:56
+#: models.py:27 models.py:56 models.py:75 models.py:106 models.py:132
 msgid "Updated At"
 msgstr "Обновленно"
 
-#: models.py:23 models.py:28 models.py:45 models.py:46
+#: models.py:38 models.py:46 models.py:93
 msgid "Client"
 msgstr "Клиент"
 
-#: models.py:24
+#: models.py:39 views.py:15
 msgid "Clients"
 msgstr "Клиенты"
 
-#: models.py:29 models.py:74
-msgid "Image"
-msgstr "Изображение"
+#: models.py:49
+msgid "Review Image"
+msgstr "Изображение отзыва"
 
-#: models.py:30
+#: models.py:51
 msgid "Text"
 msgstr "Текст"
 
-#: models.py:41
+#: models.py:63
 msgid "Review"
 msgstr "Отзыв"
 
-#: models.py:42
+#: models.py:64 views.py:29 templates/portfolio/reviews.html:5
 msgid "Reviews"
 msgstr "Отзывы"
 
-#: models.py:48
-msgid "Scope"
-msgstr "Сфера деятельности"
+#: models.py:86
+msgid "Project Category"
+msgstr "Категория проекта"
 
-#: models.py:50
-msgid "Attendance"
-msgstr "Посещяемость"
+#: models.py:87
+msgid "Project Categories"
+msgstr "Категории проектов"
 
-#: models.py:51
-msgid "Regions"
-msgstr "Регионы"
+#: models.py:92
+msgid "Category"
+msgstr "Категория"
 
-#: models.py:52
-msgid "Office"
-msgstr "Офис"
+#: models.py:97
+msgid "Project Image Cover"
+msgstr "Обложка проекта"
 
-#: models.py:63 models.py:73
+#: models.py:103
+msgid "Main"
+msgstr "На главной"
+
+#: models.py:117 models.py:124
 msgid "Project"
 msgstr "Проект"
 
-#: models.py:64
+#: models.py:118
 msgid "Projects"
 msgstr "Проекты"
 
-#: models.py:68
-msgid "Make"
-msgstr "Создание"
+#: models.py:127 models.py:139
+msgid "Image"
+msgstr "Изображение"
 
-#: models.py:69
-msgid "Promo"
-msgstr "Продвижение"
+#: models.py:140
+msgid "Images"
+msgstr "Изображения"
 
-#: models.py:76
-msgid "Type"
-msgstr "Тип"
+#: views.py:37
+msgid "Categories"
+msgstr "Категории"
 
-#: models.py:83
-msgid "Screen Shot"
-msgstr "Скришот"
+#: templates/portfolio/categories.html:15
+msgid "Total"
+msgstr "Всего"
 
-#: models.py:84
-msgid "Screen Shots"
-msgstr "Скриншоты"
+#: templates/portfolio/clients.html:7
+msgid "Clietns"
+msgstr "Клиенты"
+
+#: templates/portfolio/blocks/b-project-item.html:23
+msgid "More"
+msgstr ""

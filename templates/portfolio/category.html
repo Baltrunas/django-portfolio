@@ -1,10 +1,29 @@
 {% extends 'base.html' %}
+
 {% load i18n %}
+{% load thumbnail %}
 
 {% block content %}
 	<h1 class='b-category__title'>{{ category.name }}</h1>
-
 	<p class='b-category__description'>{{ category.description }}</p>
 
-	{% include "portfolio/blocks/b-project-list.html" %}
+	<div class="b-projects">
+	{% for project in projects %}
+		<div class="b-project">
+			<a href="{{ project.get_absolute_url }}" class='b-project-img'>
+			{% if project.img %}
+				{% thumbnail project.img "200x200" as im %}
+					<img src="{{ im.url }}" alt="{{ project.name }}"
+						style="padding:{{ im|margin:"200x200" }}"
+					>
+				{% endthumbnail %}
+			{% endif %}
+			</a>
+			<a href="{{ project.get_absolute_url }}" class="b-category-project__title">
+				{{ project.name }}
+			</a>
+			<time class='b-project__date'>{{ project.created_at|date:"j E, Y"}}</time>
+		</div><!-- b-project -->
+	{% endfor %}
+	</div>
 {% endblock %}

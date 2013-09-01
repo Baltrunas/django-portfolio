@@ -7,12 +7,17 @@ urlpatterns = patterns('portfolio.views',
 	url(r'^clients/$', 'clients', name='portfolio_clients'),
 
 	# Client
-	url(r'^clients/(?P<slug>[-_\d\w]+)/$', 'client_detail', name='portfolio_client_detail'),
+	url(r'^clients/(?P<slug>[-_\d\w]+)/$', 'client', name='portfolio_client'),
 
-	# Review
+	# Reviews
 	url(r'^reviews/$', 'reviews', name='portfolio_reviews'),
 
-	url(r'^portfolio/$', 'portfolio', name='portfolio_portfolio'),
-	url(r'^portfolio/(?P<slug>[-_\d\w]+)/$', 'portfolio_category', name='portfolio_portfolio_category'),
-	url(r'^portfolio/(?P<category_slug>[-_\d\w]+)/(?P<project_slug>[-_\d\w]+)/$', 'portfolio_category_project', name='portfolio_portfolio_category_project'),
+	# Categories
+	url(r'^portfolio/$', 'categories', name='portfolio_categories'),
+
+	# Category
+	url(r'^portfolio/(?P<slug>[-_\d\w]+)/$', 'category', name='portfolio_category'),
+
+	# Project
+	url(r'^portfolio/(?P<category_slug>[-_\d\w]+)/(?P<project_slug>[-_\d\w]+)/$', 'project', name='portfolio_project'),
 )
