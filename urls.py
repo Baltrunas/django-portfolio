@@ -12,6 +12,9 @@ urlpatterns = patterns('portfolio.views',
 	# Reviews
 	url(r'^reviews/$', 'reviews', name='portfolio_reviews'),
 
+	# Review
+	url(r'^reviews/(?P<slug>[-_\d\w]+)/$', 'review', name='portfolio_review'),
+
 	# Categories
 	url(r'^portfolio/$', 'categories', name='portfolio_categories'),
 

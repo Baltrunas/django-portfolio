@@ -30,10 +30,17 @@ def reviews(request):
 	return render_to_response('portfolio/reviews.html', context, context_instance=RequestContext(request))
 
 
+def review(request, slug):
+	context = {}
+	context['review'] = get_object_or_404(Review, public=True, slug=slug)
+	context['title'] = context['review'].name
+	return render_to_response('portfolio/review.html', context, context_instance=RequestContext(request))
+
+
 def categories(request):
 	context = {}
 	context['categories'] = Category.objects.filter(public=True)
-	context['projects'] = Project.objects.filter(public=True)
+	# context['projects'] = Project.objects.filter(public=True)
 	context['title'] = _('Categories')
 	return render_to_response('portfolio/categories.html', context, context_instance=RequestContext(request))
 

@@ -31,6 +31,7 @@ Pages:
 	~ Клиенты
 		http://mediatemple.net/company/clients/
 		http://www.carbonneutral.com/our-clients/
+		Client Since: 2007
 	~ Клиент подробно
 
 	- Отзывы
@@ -47,13 +48,11 @@ Pages:
 		- Нормальные сноски
 
 Views:
-	? review
 	? screenshot
 
 Admin:
 
 URLs:
-	? review
 	? screenshot
 
 Tests:

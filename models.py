@@ -28,7 +28,7 @@ class Client(models.Model):
 
 	@models.permalink
 	def get_absolute_url(self):
-		return ('portfolio_client_detail', (), {'slug': self.slug})
+		return ('portfolio_client', (), {'slug': self.slug})
 
 	def __unicode__(self):
 		return self.name
@@ -55,6 +55,10 @@ class Review(models.Model):
 	created_at = models.DateTimeField(verbose_name=_('Created At'), auto_now_add=True)
 	updated_at = models.DateTimeField(verbose_name=_('Updated At'), auto_now=True)
 
+	@models.permalink
+	def get_absolute_url(self):
+		return ('portfolio_review', (), {'slug': self.slug})
+
 	def __unicode__(self):
 		return self.name
 
@@ -76,7 +80,10 @@ class Category(models.Model):
 
 	@models.permalink
 	def get_absolute_url(self):
-		return ('portfolio_portfolio_category', (), {'slug': self.slug})
+		return ('portfolio_category', (), {'slug': self.slug})
+
+	def get_public_projects(self):
+		return self.category_project.filter(public=True)
 
 	def __unicode__(self):
 		return self.name
@@ -107,7 +114,7 @@ class Project(models.Model):
 
 	@models.permalink
 	def get_absolute_url(self):
-		return ('portfolio_portfolio_category_project', (), {'category_slug': self.category.slug, 'project_slug': self.slug})
+		return ('portfolio_project', (), {'category_slug': self.category.slug, 'project_slug': self.slug})
 
 	def __unicode__(self):
 		return self.name

@@ -3,144 +3,230 @@
  * =PORTFOLIO
  **************************
 */
-.b-portfolio {
-	display: block;
-	clear: both;
-	overflow: hidden;
+.b-portfolio-categories {
+	margin-bottom: 30px;
 }
 
-.b-project {
+.b-portfolio-category {
+	display: block;
 	float: left;
+	width: 30%;
+	padding-right: 5%;
+	height: 250px;
+}
+
+.b-portfolio-category:nth-child(3n) {
+	padding-right: 0;
+}
+
+.b-category-name__link {
+	text-decoration: underline;
+	color: #005;
+}
+
+.b-portfolio-category-name {
+	padding: 0;
+	margin: 0;
+}
+
+.b-portfolio-category__count {
+	font: bold 11px Calibri;
+}
+
+.b-portfolio-category-list {
+	margin-top: 3px;
+	border-top: 1px dashed silver;
+}
+
+.b-project-item__title {
 	display: block;
-	width: 250px;
-	height: 420px;
-	border: 1px solid #d9d9d9;
-	box-sizing: border-box;
-	font-size: 10px;
-	margin-right: 66px;
-	margin-bottom: 60px;
-}
-
-.b-project:nth-child(4n){
-	margin-right: 0;
-	/*background: green;*/
-}
-
-.b-project img {
-	background: rgba(95, 181, 193, 0.1);
-	display: block;
-	/*width: 248px;*/
-	/*height: 248px;*/
-}
-
-.b-project-img {
-	text-decoration: none;
-}
-
-.b-project__title {
-	text-decoration: none;
-	font-weight: bold;
-	font-size: 14px;
-	margin: 20px 20px 10px;
-	display: block;
-}
-
-.b-project__title:hover {
+	padding-top: 10px;
 	text-decoration: underline;
 }
 
 .b-project__date {
-	margin: 3px 20px;
-	display: block;
-	color: #999;
-}
-
-.b-project__description {
-	margin: 10px 20px;
-}
-
-.b-project__more {
-	margin: 0 20px;
-	text-decoration: none;
-}
-
-.b-project__more:before {
-	content: '↬ ';
-	font-size: 15px;
-}
-
-
-
-
-.b-clients__title {
-	display: none;
-}
-
-.b-clients {
-	display: block;
-	clear: both;
-	margin-top: 20px;
-}
-
-.b-client {
-	opacity: 0.8;
-	float: left;
-	margin: 0;
-	margin-right: 50px;
-	margin-bottom: 50px;
-	display: block;
-	padding: 10px;
-	background: #fdfdfd;
-	border: 1px solid #eee;
-	width: 200px;
-	text-align: center;
-	box-sizing: border-box;
-	-webkit-transition: all 0.7s ease-out;  /* Saf3.2+, Chrome */
-	-moz-transition: all 0.7s ease-out;  /* FF4+ */
-	-ms-transition: all 0.7s ease-out;  /* IE10 */
-	-o-transition: all 0.7s linear;  /* Opera 10.5+ */
-	transition: all 0.7s ease-out;
-
-}
-
-.b-client:nth-child(5n) {
-	margin-right: 0;
-}
-
-.b-client:hover {
-	opacity: 1;
-}
-
-.b-client__logo {
-	padding: 10px;
-	width: 170px;
-	margin: 30px 0;
-	box-sizing: content-box;
-}
-
-.b-client__name {
-	padding: 0;
-	margin: 0;
-	font-size: 18px;
-	background-color: #999;
-	color: transparent;
-	text-shadow: 0px 0px 2px rgba(255,255,255,0.5);
-	-webkit-background-clip: text;
-	-moz-background-clip: text;
-	background-clip: text;
-	font-weight: bold;
+	font-size: 10px;
 }
 
 .b-image {
-	display: block;
-	clear: both;
-	margin-bottom: 80px;
-	overflow: hidden;
+	position: relative;
+	z-index: 10;
+	width: 980px;
+	padding: 0;
+	margin: 0;
 }
 
-.b-image__img {
-	/*width: 700px;*/
-	width: 100%;
+.b-image__comment {
+	position: absolute;
+	font: normal 14px Calibri;
+	color: #000;
+	padding: 10px;
+	max-width: 200px;
+	background: #ffc;
+	box-shadow: 0 0 10px #333;
+	height: 75px;
+}
+
+.b-image__comment:before {
+	content: '⤹';
+	position: absolute;
+	color: #ffc;
+	left: -35px;
+	font-size: 40px;
+	top: 86px;
+	text-shadow: 0 0 10px #000;
+	font-weight: bold;
+	display: block;
+}
+
+.b-image__caption {
+	margin-bottom: 20px;
+	text-align: center;
+	color: #222;
+	font: italic normal 400 16px/18px "Times New Roman";
+}
+
+.b-image__caption:before,
+.b-image__caption:after {
+	color: #ccc;
+	font-style: normal;
+	font-size: 14px;
+}
+
+.b-image__caption:before  {
+	content: '— ';
+}
+
+.b-image__caption:after  {
+	content: ' —';
+}
+
+.b-project__title,
+.b-project-info {
+	padding: 0 30px;
+}
+
+.b-project {
+	display: block;
+	width: 200px;
 	float: left;
-	/*padding: 50px;*/
+	padding: 0;
+	height: 320px;
+	margin: 0;
+	margin-right: 50px;
+}
+
+.b-project:nth-child(4n) {
+	margin: 0;
+}
+
+
+.b-project-img,
+.b-project-img img {
+	text-decoration: none;
+	border: none;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+.b-category-project__title {
+	display: block;
+	clear: both;
+}
+
+.b-project__www {
+	font-size: 25px;
+	text-decoration: underline;
+}
+
+.b-client {
+	display: inline-block;
+	position: relative;
+	padding: 10px;
+	margin: 0;
+	margin-bottom: 25px;
+	margin-right: 25px;
+	background: #fff;
+	border-radius: 4px;
+
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+
+	-webkit-transition: all 1.4s;
+	-moz-transition: all 1.4s;
+	-o-transition: all 1.4s;
+	-ms-transition: all 1.4s;
+	transition: all 1.4s;
+}
+
+
+.b-client:nth-child(4n) {
+	margin: 0;
+}
+
+.b-client figcaption {
+	line-height: 100px;
+	margin-top: -100px;
+	position: relative;
+	text-align: center;
+	color: transparent;
+	font-weight: bold;
+
+	-webkit-transition: all 1.4s;
+	-moz-transition: all 1.4s;
+	-o-transition: all 1.4s;
+	-ms-transition: all 1.4s;
+	transition: all 1.4s;
+}
+
+.b-client:hover figcaption {
+	color: #000;
+}
+
+.b-client img {
+	-webkit-transition: all 1.4s;
+	-moz-transition: all 1.4s;
+	-o-transition: all 1.4s;
+	-ms-transition: all 1.4s;
+	transition: all 1.4s;
+}
+
+.b-client:hover img {
+	opacity: 0;
+}
+
+.b-client:hover {
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 0 90px rgba(0, 0, 0, 0.2) inset;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 0 90px rgba(0, 0, 0, 0.2) inset;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 0 90px rgba(0, 0, 0, 0.2) inset;
+}
+
+.b-client:before,
+.b-client:after {
+	content: "";
+	position: absolute;
+	z-index: -2;
+	bottom: 15px;
+	left: 10px;
+	width: 50%;
+	height: 20%;
+	max-width: 300px;
+	-webkit-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+	-moz-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+	box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+	-webkit-transform: rotate(-3deg);
+	-moz-transform: rotate(-3deg);
+	-ms-transform: rotate(-3deg);
+	-o-transform: rotate(-3deg);
+	transform: rotate(-3deg);
+}
+ 
+.b-client:after {
+	right: 10px;
+	left: auto;
+	-webkit-transform: rotate(3deg);
+	-moz-transform: rotate(3deg);
+	-ms-transform: rotate(3deg);
+	-o-transform: rotate(3deg);
+	transform: rotate(3deg);
 }

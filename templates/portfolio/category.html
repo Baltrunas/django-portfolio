@@ -5,7 +5,9 @@
 
 {% block content %}
 	<h1 class='b-category__title'>{{ category.name }}</h1>
-	<p class='b-category__description'>{{ category.description }}</p>
+	{% if category.description %}
+		<p class='b-category__description'>{{ category.description }}</p>
+	{% endif %}
 
 	<div class="b-projects">
 	{% for project in projects %}
@@ -25,5 +27,5 @@
 			<time class='b-project__date'>{{ project.created_at|date:"j E, Y"}}</time>
 		</div><!-- b-project -->
 	{% endfor %}
-	</div>
+	</div><!-- b-projects -->
 {% endblock %}
