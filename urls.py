@@ -2,6 +2,7 @@
 from django.conf.urls import patterns
 from django.conf.urls import url
 
+
 urlpatterns = patterns('portfolio.views',
 	# Clients
 	url(r'^clients/$', 'clients', name='portfolio_clients'),

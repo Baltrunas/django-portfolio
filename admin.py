@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*
 from django.contrib import admin
-from portfolio.models import Client
-from portfolio.models import Review
-from portfolio.models import Category
-from portfolio.models import Project
-from portfolio.models import Image
+
+from .models import Client
+from .models import Review
+from .models import Category
+from .models import Project
+from .models import Image
 
 
 class ProjectInline(admin.StackedInline):

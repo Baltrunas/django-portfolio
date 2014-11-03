@@ -39,35 +39,6 @@ class Client(models.Model):
 		verbose_name_plural = _('Clients')
 
 
-class Review(models.Model):
-	name = models.CharField(verbose_name=_('Name'), max_length=256)
-	slug = models.SlugField(verbose_name=_('Slug'), max_length=128, help_text=_('A slug is the part of a URL which identifies a page using human-readable keywords'))
-
-	client = models.ForeignKey(Client, verbose_name=_('Client'), related_name='client_reviews')
-
-	dir_puth = 'img/portfolio/review'
-	img = models.ImageField(verbose_name=_('Review Image'), upload_to=upload_to, blank=True, null=True)
-
-	text = models.TextField(verbose_name=_('Text'), blank=True, null=True)
-	order = models.PositiveSmallIntegerField(verbose_name=_('Order'), default=500)
-	sites = models.ManyToManyField(Site, verbose_name=_('Sites'), null=True, blank=True)
-	public = models.BooleanField(verbose_name=_('Public'), default=True)
-	created_at = models.DateTimeField(verbose_name=_('Created At'), auto_now_add=True)
-	updated_at = models.DateTimeField(verbose_name=_('Updated At'), auto_now=True)
-
-	@models.permalink
-	def get_absolute_url(self):
-		return ('portfolio_review', (), {'slug': self.slug})
-
-	def __unicode__(self):
-		return self.name
-
-	class Meta:
-		ordering = ['order', 'name']
-		verbose_name = _('Review')
-		verbose_name_plural = _('Reviews')
-
-
 class Category(models.Model):
 	name = models.CharField(verbose_name=_('Name'), max_length=256)
 	slug = models.SlugField(verbose_name=_('Slug'), max_length=128, help_text=_('A slug is the part of a URL which identifies a page using human-readable keywords'))
@@ -103,11 +74,14 @@ class Project(models.Model):
 	dir_puth = 'img/portfolio/project'
 	img = models.ImageField(verbose_name=_('Project Image Cover'), upload_to=upload_to, blank=True, null=True)
 	description = models.TextField(verbose_name=_('Description'), blank=True)
+	# ?
 	www = models.CharField(verbose_name=_('WWW'), max_length=256, blank=True, null=True)
+	template = models.CharField(verbose_name=_('Template'), max_length=128, null=True, blank=True)
 	order = models.PositiveSmallIntegerField(verbose_name=_('Order'), default=500)
 	sites = models.ManyToManyField(Site, verbose_name=_('Sites'), null=True, blank=True)
 
-	main = models.BooleanField(verbose_name=_('Main'))
+
+	main = models.BooleanField(verbose_name=_('Main'), default=False)
 	public = models.BooleanField(verbose_name=_('Public'), default=True)
 	created_at = models.DateTimeField(verbose_name=_('Created At'), auto_now_add=True)
 	updated_at = models.DateTimeField(verbose_name=_('Updated At'), auto_now=True)
@@ -127,6 +101,7 @@ class Project(models.Model):
 
 class Image(models.Model):
 	name = models.CharField(verbose_name=_('Name'), max_length=256)
+	#?
 	slug = models.SlugField(verbose_name=_('Slug'), max_length=128, help_text=_('A slug is the part of a URL which identifies a page using human-readable keywords'))
 	project = models.ForeignKey(Project, verbose_name=_('Project'), related_name='project_images')
 
@@ -145,3 +120,33 @@ class Image(models.Model):
 		ordering = ['order', 'name']
 		verbose_name = _('Image')
 		verbose_name_plural = _('Images')
+
+
+
+class Review(models.Model):
+	name = models.CharField(verbose_name=_('Name'), max_length=256)
+	slug = models.SlugField(verbose_name=_('Slug'), max_length=128, help_text=_('A slug is the part of a URL which identifies a page using human-readable keywords'))
+
+	client = models.ForeignKey(Client, verbose_name=_('Client'), related_name='client_reviews')
+
+	dir_puth = 'img/portfolio/review'
+	img = models.ImageField(verbose_name=_('Review Image'), upload_to=upload_to, blank=True, null=True)
+
+	text = models.TextField(verbose_name=_('Text'), blank=True, null=True)
+	order = models.PositiveSmallIntegerField(verbose_name=_('Order'), default=500)
+	sites = models.ManyToManyField(Site, verbose_name=_('Sites'), null=True, blank=True)
+	public = models.BooleanField(verbose_name=_('Public'), default=True)
+	created_at = models.DateTimeField(verbose_name=_('Created At'), auto_now_add=True)
+	updated_at = models.DateTimeField(verbose_name=_('Updated At'), auto_now=True)
+
+	@models.permalink
+	def get_absolute_url(self):
+		return ('portfolio_review', (), {'slug': self.slug})
+
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		ordering = ['order', 'name']
+		verbose_name = _('Review')
+		verbose_name_plural = _('Reviews')
