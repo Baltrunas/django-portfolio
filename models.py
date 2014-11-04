@@ -122,6 +122,33 @@ class Image(models.Model):
 		verbose_name_plural = _('Images')
 
 
+class Property(models.Model):
+	name = models.CharField(verbose_name=_('Name'), max_length=256)
+	slug = models.SlugField(verbose_name=_('Slug'))
+	unit = models.CharField(verbose_name=_('Unit'), max_length=32, blank=True)
+	description = models.TextField(verbose_name=_('Description'), blank=True)
+
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		ordering = ['name']
+		verbose_name = _('Property')
+		verbose_name_plural = _('Properties')
+
+
+class Value(models.Model):
+	property = models.ForeignKey(Property, verbose_name=_('Property'), related_name='values')
+	value = models.CharField(verbose_name=_('Value'), max_length=256)
+	image = models.ForeignKey(Image, verbose_name=_('Image'), related_name='values')
+
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		verbose_name = _('Value')
+		verbose_name_plural = _('Values')
+
 
 class Review(models.Model):
 	name = models.CharField(verbose_name=_('Name'), max_length=256)

@@ -6,6 +6,8 @@ from .models import Review
 from .models import Category
 from .models import Project
 from .models import Image
+from .models import Property
+from .models import Value
 
 
 class ProjectInline(admin.StackedInline):
@@ -60,10 +62,19 @@ class ProjectAdmin(admin.ModelAdmin):
 admin.site.register(Project, ProjectAdmin)
 
 
+class ValueInline(admin.StackedInline):
+	model = Value
+	extra = 0
+
 class ImageAdmin(admin.ModelAdmin):
 	list_display = ['name', 'slug', 'project', 'order', 'public', 'created_at', 'updated_at']
 	search_fields = ['name', 'slug', 'project', 'img', 'description', 'order', 'public', 'created_at', 'updated_at']
 	list_editable = ['order', 'public']
 	list_filter = ['project', 'public', 'created_at', 'updated_at']
+	inlines = [ValueInline]
 
 admin.site.register(Image, ImageAdmin)
+
+admin.site.register(Property)
+
+admin.site.register(Value)

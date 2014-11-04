@@ -57,4 +57,8 @@ def project(request, category_slug, project_slug):
 	context = {}
 	context['project'] = get_object_or_404(Project, public=True, slug=project_slug)
 	context['title'] = context['project'].name
-	return render(request, 'portfolio/project.html', context)
+	if context['project'].template:
+		template = context['project'].template
+	else:
+		template = 'portfolio/project.html'
+	return render(request, template, context)
