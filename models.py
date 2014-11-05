@@ -74,7 +74,7 @@ class Project(models.Model):
 	dir_puth = 'img/portfolio/project'
 	img = models.ImageField(verbose_name=_('Project Image Cover'), upload_to=upload_to, blank=True, null=True)
 	description = models.TextField(verbose_name=_('Description'), blank=True)
-	# ?
+
 	www = models.CharField(verbose_name=_('WWW'), max_length=256, blank=True, null=True)
 	template = models.CharField(verbose_name=_('Template'), max_length=128, null=True, blank=True)
 	order = models.PositiveSmallIntegerField(verbose_name=_('Order'), default=500)
@@ -101,7 +101,6 @@ class Project(models.Model):
 
 class Image(models.Model):
 	name = models.CharField(verbose_name=_('Name'), max_length=256)
-	#?
 	slug = models.SlugField(verbose_name=_('Slug'), max_length=128, help_text=_('A slug is the part of a URL which identifies a page using human-readable keywords'))
 	project = models.ForeignKey(Project, verbose_name=_('Project'), related_name='project_images')
 
@@ -143,7 +142,7 @@ class Value(models.Model):
 	image = models.ForeignKey(Image, verbose_name=_('Image'), related_name='values')
 
 	def __unicode__(self):
-		return self.name
+		return self.value
 
 	class Meta:
 		verbose_name = _('Value')
