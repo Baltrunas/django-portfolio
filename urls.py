@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*
 from django.conf.urls import patterns
-from django.conf.urls import url
+from django.conf.urls.portfolio import url
 
 
-urlpatterns = patterns('portfolio.views',
+urlpatterns = patterns('apps.portfolio.views',
 	# Clients
 	url(r'^clients/$', 'clients', name='portfolio_clients'),
 

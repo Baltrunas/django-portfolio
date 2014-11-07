@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from apps import portfolio
+
 from django.db import models, migrations
-import portfolio.models
 
 
 class Migration(migrations.Migration):

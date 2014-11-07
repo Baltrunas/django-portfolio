@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*
 from django.contrib import admin
 
+
 from .models import Client
 from .models import Review
 from .models import Category
