@@ -1,6 +1,6 @@
 from django import template
 
-from portfolio.models import Value
+from ..models import Value
 
 
 register = template.Library()
