@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*
-from django.conf.urls import patterns
-from django.conf.urls.portfolio import url
+from django.conf.urls import patterns, url
 
 
 urlpatterns = patterns('apps.portfolio.views',
