@@ -19,13 +19,16 @@ Portfolio is well-suited for designers, programmers, photographers. The ability 
 # ToDo
 Models:
 	Category
+		? parent
 		? sites
 	Project
+		icon
 	ScreenShot
 		? Метод для обрамления скриншота как окна
 		? типы\виды файлов для изображения
 	Client
 	Review
+	? Tag
 
 Pages:
 	~ Клиенты
