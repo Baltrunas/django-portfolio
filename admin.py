@@ -39,8 +39,8 @@ admin.site.register(Review, ReviewAdmin)
 
 
 class CategoryAdmin(admin.ModelAdmin):
-	list_display = ['name', 'slug', 'order', 'public', 'created_at', 'updated_at']
-	search_fields = ['name', 'slug', 'description', 'order', 'sites', 'public', 'created_at', 'updated_at']
+	list_display = ['name', 'slug', 'cover', 'order', 'public', 'created_at', 'updated_at']
+	search_fields = ['name', 'slug', 'cover', 'description', 'order', 'sites', 'public', 'created_at', 'updated_at']
 	list_editable = ['order', 'public']
 	list_filter = ['sites', 'public', 'created_at', 'updated_at']
 

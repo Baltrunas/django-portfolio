@@ -4,18 +4,20 @@ from django.contrib.sites.models import Site
 from django.utils.translation import ugettext as _
 
 
-def upload_to(instance, filename):
-	file_type = filename.split('.')[len(filename.split('.')) - 1]
-	puth = '%s/%s.%s' % (instance.dir_puth, instance.slug, file_type)
-	return puth
+def file_type(filename):
+	filename = filename.split('.')
+	filetype = filename[len(filename) - 1].lower()
+	return filetype
 
+
+def client_upload_to(instance, filename):
+	return 'portfolio/_clients/%s.%s' % (instance.slug, file_type(filename))
 
 class Client(models.Model):
 	name = models.CharField(verbose_name=_('Name'), max_length=256)
 	slug = models.SlugField(verbose_name=_('Slug'), max_length=128, help_text=_('A slug is the part of a URL which identifies a page using human-readable keywords'))
 
-	dir_puth = 'img/portfolio/clients'
-	logo = models.ImageField(verbose_name=_('Logo'), upload_to=upload_to, blank=True, null=True)
+	logo = models.ImageField(verbose_name=_('Logo'), upload_to=client_upload_to, blank=True, null=True)
 
 	description = models.TextField(verbose_name=_('Description'), blank=True, null=True)
 	www = models.CharField(verbose_name=_('WWW'), max_length=256, blank=True, null=True)
@@ -39,9 +41,13 @@ class Client(models.Model):
 		verbose_name_plural = _('Clients')
 
 
+def category_upload_to(instance, filename):
+	return 'portfolio/%s/_cover.%s' % (instance.slug, file_type(filename))
+
 class Category(models.Model):
 	name = models.CharField(verbose_name=_('Name'), max_length=256)
 	slug = models.SlugField(verbose_name=_('Slug'), max_length=128, help_text=_('A slug is the part of a URL which identifies a page using human-readable keywords'))
+	cover = models.ImageField(verbose_name=_('Cover'), upload_to=category_upload_to, blank=True, null=True)
 	description = models.TextField(verbose_name=_('Description'), blank=True, null=True)
 	order = models.PositiveSmallIntegerField(verbose_name=_('Order'), default=500)
 	sites = models.ManyToManyField(Site, verbose_name=_('Sites'), null=True, blank=True)
@@ -65,21 +71,26 @@ class Category(models.Model):
 		verbose_name_plural = _('Project Categories')
 
 
+def cover_upload_to(instance, filename):
+	return 'portfolio/%s/%s/_cover.%s' % (instance.category.slug, instance.slug, file_type(filename))
+
+def icon_upload_to(instance, filename):
+	return 'portfolio/%s/%s/_icon.%s' % (instance.category.slug, instance.slug, file_type(filename))
+
 class Project(models.Model):
 	name = models.CharField(verbose_name=_('Name'), max_length=256)
 	category = models.ForeignKey(Category, verbose_name=_('Category'), related_name='category_project')
 	client = models.ForeignKey(Client, verbose_name=_('Client'), blank=True, null=True)
 	slug = models.SlugField(verbose_name=_('Slug'), max_length=128, help_text=_('A slug is the part of a URL which identifies a page using human-readable keywords'))
 
-	dir_puth = 'img/portfolio/project'
-	img = models.ImageField(verbose_name=_('Project Image Cover'), upload_to=upload_to, blank=True, null=True)
+	cover = models.ImageField(verbose_name=_('Cover'), upload_to=cover_upload_to, blank=True, null=True)
+	icon = models.ImageField(verbose_name=_('Icon'), upload_to=icon_upload_to, blank=True, null=True)
 	description = models.TextField(verbose_name=_('Description'), blank=True)
 
 	www = models.CharField(verbose_name=_('WWW'), max_length=256, blank=True, null=True)
 	template = models.CharField(verbose_name=_('Template'), max_length=128, null=True, blank=True)
 	order = models.PositiveSmallIntegerField(verbose_name=_('Order'), default=500)
 	sites = models.ManyToManyField(Site, verbose_name=_('Sites'), null=True, blank=True)
-
 
 	main = models.BooleanField(verbose_name=_('Main'), default=False)
 	public = models.BooleanField(verbose_name=_('Public'), default=True)
@@ -99,13 +110,15 @@ class Project(models.Model):
 		verbose_name_plural = _('Projects')
 
 
+def image_upload_to(instance, filename):
+	return 'portfolio/%s/%s/%s.%s' % (instance.project.category.slug, instance.project.slug, instance.slug, file_type(filename))
+
 class Image(models.Model):
 	name = models.CharField(verbose_name=_('Name'), max_length=256)
 	slug = models.SlugField(verbose_name=_('Slug'), max_length=128, help_text=_('A slug is the part of a URL which identifies a page using human-readable keywords'))
 	project = models.ForeignKey(Project, verbose_name=_('Project'), related_name='project_images')
 
-	dir_puth = 'img/portfolio/screenshot'
-	img = models.ImageField(verbose_name=_('Image'), upload_to=upload_to, blank=True, null=True)
+	img = models.ImageField(verbose_name=_('Image'), upload_to=image_upload_to, blank=True, null=True)
 	description = models.TextField(verbose_name=_('Description'), blank=True, null=True)
 	order = models.PositiveSmallIntegerField(verbose_name=_('Order'), default=500)
 	public = models.BooleanField(verbose_name=_('Public'), default=True)
@@ -149,14 +162,16 @@ class Value(models.Model):
 		verbose_name_plural = _('Values')
 
 
+def review_upload_to(instance, filename):
+	return 'portfolio/_review/%s.%s' % (instance.slug, file_type(filename))
+
 class Review(models.Model):
 	name = models.CharField(verbose_name=_('Name'), max_length=256)
 	slug = models.SlugField(verbose_name=_('Slug'), max_length=128, help_text=_('A slug is the part of a URL which identifies a page using human-readable keywords'))
 
 	client = models.ForeignKey(Client, verbose_name=_('Client'), related_name='client_reviews')
 
-	dir_puth = 'img/portfolio/review'
-	img = models.ImageField(verbose_name=_('Review Image'), upload_to=upload_to, blank=True, null=True)
+	img = models.ImageField(verbose_name=_('Review Image'), upload_to=review_upload_to, blank=True, null=True)
 
 	text = models.TextField(verbose_name=_('Text'), blank=True, null=True)
 	order = models.PositiveSmallIntegerField(verbose_name=_('Order'), default=500)
