@@ -10,8 +10,8 @@ Portfolio is well-suited for designers, programmers, photographers. The ability 
 
 
 # Install
-* Add to INSTALLED_APPS 'portfolio'
-* Add to urls.py  url(r'^', include('portfolio.urls')),
+* Add to INSTALLED_APPS 'apps.portfolio'
+* Add to urls.py  url(r'^', include('apps.portfolio.urls')),
 * manage.py syncdb
 * manage.py collectstatic
 
