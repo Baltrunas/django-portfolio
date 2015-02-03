@@ -10,5 +10,5 @@ urlpatterns = [
 	url(r'^reviews/(?P<slug>[-_\d\w]+)/$', views.review, name='portfolio_review'),
 	url(r'^portfolio/$', views.categories, name='portfolio_categories'),
 	url(r'^portfolio/(?P<slug>[-_\d\w]+)/$', views.category, name='portfolio_category'),
-	url(r'^portfolio/(?P<category_slug>[-_\d\w]+)/(?P<project_slug>[-_\d\w]+)/$', views.project, name='portfolio_project'),
+	url(r'^portfolio/(?P<category_slug>[-_\d\w]+)/(?P<project_slug>[-_\d\w.]+)/$', views.project, name='portfolio_project'),
 ]
