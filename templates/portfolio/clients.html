@@ -7,7 +7,6 @@
 	<h1 class='b-clients__title'>{% trans 'Clietns' %}</h1>
 	<div class='b-clients'>
 	{% for client in clients %}
-	{% for client in clients %}
 		<figure class='b-client'>
 			<a href='{{ client.get_absolute_url }}'>
 				{% if client.logo %}
@@ -20,7 +19,6 @@
 				<figcaption class='b-client__name'>{{ client.name }}</figcaption>
 			</a>
 		</figure>
-	{% endfor %}
 	{% endfor %}
 	</div>
 
