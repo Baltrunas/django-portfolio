@@ -81,7 +81,8 @@ class Project(models.Model):
 	name = models.CharField(verbose_name=_('Name'), max_length=256)
 	category = models.ForeignKey(Category, verbose_name=_('Category'), related_name='category_project')
 	client = models.ForeignKey(Client, verbose_name=_('Client'), blank=True, null=True)
-	slug = models.SlugField(verbose_name=_('Slug'), max_length=128, help_text=_('A slug is the part of a URL which identifies a page using human-readable keywords'))
+	# SlugField
+	slug = models.CharField(verbose_name=_('Slug'), max_length=128, help_text=_('A slug is the part of a URL which identifies a page using human-readable keywords'))
 
 	cover = models.ImageField(verbose_name=_('Cover'), upload_to=cover_upload_to, blank=True, null=True)
 	icon = models.ImageField(verbose_name=_('Icon'), upload_to=icon_upload_to, blank=True, null=True)
