@@ -4,21 +4,26 @@
 {% load thumbnail %}
 
 {% block content %}
-	<h1 class='b-category__title'>{{ category.name }}</h1>
-	{% if category.description %}
-		<p class='b-category__description'>{{ category.description }}</p>
-	{% endif %}
+<div class="b-wrapper">
+		<h1 class='b-category__title'>{{ category.name }}</h1>
+		{% if category.description %}
+			<p class='b-category__description'>{{ category.description }}</p>
+		{% endif %}
 
 	<div class="b-projects">
 	{% for project in projects %}
 		<div class="b-project">
+			<div class="b-project_mask"></div>
 			<a href="{{ project.get_absolute_url }}" class='b-project-img'>
-			{% if project.img %}
-				{% thumbnail project.img "200x200" as im %}
-					<img src="{{ im.url }}" alt="{{ project.name }}"
-						style="padding:{{ im|margin:"200x200" }}"
-					>
-				{% endthumbnail %}
+			{% if project.cover %}
+				<img src="{{ project.cover.url }}" alt="{{ project.name }}">
+					
+
+				{# {% thumbnail project.cover "200x200" as im %} #}
+					{# <img src="{{ im.url }}" alt="{{ project.name }}" #}
+						{# style="padding:{{ im|margin:"200x200" }}" #}
+					{# > #}
+				{# {% endthumbnail %} #}
 			{% endif %}
 			</a>
 			<a href="{{ project.get_absolute_url }}" class="b-category-project__title">
@@ -28,4 +33,5 @@
 		</div><!-- b-project -->
 	{% endfor %}
 	</div><!-- b-projects -->
+</div>
 {% endblock %}
