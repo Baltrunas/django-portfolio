@@ -2,6 +2,7 @@
 {% load i18n %}
 
 {% block content %}
+	<div class="b-wrapper m-portfolio">
 	<h1 class='b-portfolio__title'>{% trans 'Portfolio' %}</h1>
 	<div class='b-portfolio-categories'>
 		{% for category in categories %}
@@ -10,11 +11,18 @@
 					<a href='{{ category.get_absolute_url }}' class='b-portfolio-categories-category-name__link'>
 						{{ category.name }}
 					</a>
+						{% if category.cover %}
+					<a href='{{ category.get_absolute_url }}'>
+						<img  class="b-portfolio-categories-category__img"src="{{ category.cover.url }}" alt="{{ category.name }}">
+					</a>
+						{% endif %}
 				</h2>
 				<span class='b-portfolio-categories-category__project_count'>
 					{% trans "Total" %}: {{ category.get_public_projects.count }}
 				</span>
-
+				<a href='{{ category.get_absolute_url }}' class="b-portfolio-categories-category__link">
+					посмотреть
+					</a>
 				<div class="b-portfolio-categories-category-project-list">
 					{% for project in category.get_public_projects|slice:":3" %}
 						<a href="{{ project.get_absolute_url }}" class="b-portfolio-categories-category-project-list__project_name">
@@ -28,4 +36,5 @@
 			</div><!-- b-portfolio-category -->
 		{% endfor %}
 	</div><!-- b-portfolio-categories -->
+	</div>
 {% endblock %}
