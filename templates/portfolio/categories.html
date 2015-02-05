@@ -17,11 +17,12 @@
 					</a>
 						{% endif %}
 				</h2>
-				<span class='b-portfolio-categories-category__project_count'>
-					{% trans "Total" %}: {{ category.get_public_projects.count }}
-				</span>
+<!-- 				<span class='b-portfolio-categories-category__project_count'>
+					
+				</span> -->
 				<a href='{{ category.get_absolute_url }}' class="b-portfolio-categories-category__link">
-					посмотреть
+					<span class="b-portfolio-categories-category__link-view">Посмотреть</span>
+					<span class="b-portfolio-categories-category__link-count">{% trans "Total" %}: {{ category.get_public_projects.count }}</span>
 					</a>
 				<div class="b-portfolio-categories-category-project-list">
 					{% for project in category.get_public_projects|slice:":3" %}
