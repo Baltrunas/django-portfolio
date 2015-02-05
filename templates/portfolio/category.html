@@ -13,12 +13,9 @@
 	<div class="b-projects">
 	{% for project in projects %}
 		<div class="b-project">
-			<div class="b-project_mask"></div>
 			<a href="{{ project.get_absolute_url }}" class='b-project-img'>
 			{% if project.cover %}
 				<img src="{{ project.cover.url }}" alt="{{ project.name }}">
-					
-
 				{# {% thumbnail project.cover "200x200" as im %} #}
 					{# <img src="{{ im.url }}" alt="{{ project.name }}" #}
 						{# style="padding:{{ im|margin:"200x200" }}" #}
@@ -30,6 +27,9 @@
 				{{ project.name }}
 			</a>
 			<time class='b-project__date'>{{ project.created_at|date:"j E, Y"}}</time>
+			<a href="{{ project.get_absolute_url }}" class="b-category-project__link">
+				посмотреть
+			</a>
 		</div><!-- b-project -->
 	{% endfor %}
 	</div><!-- b-projects -->
