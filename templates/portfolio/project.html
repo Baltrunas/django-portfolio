@@ -3,7 +3,8 @@
 {% load thumbnail %}
 
 {% block content %}
-	<h1 class='b-project__title'>{{ project.name }}</h1>
+<div class="b-wrapper m-project-view">
+		<h1 class='b-project__title'>{{ project.name }}</h1>
 	<div class="b-project-info">
 
 		{# <p><b>{% trans "Category" %}:</b> {{ project.category }}</p> #}
@@ -73,6 +74,7 @@
 			</figure>
 		{% endfor %}
 	</div>
+</div>
 
 
 

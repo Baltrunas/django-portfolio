@@ -12,7 +12,8 @@
 						{{ category.name }}
 					</a>
 						{% if category.cover %}
-					<a href='{{ category.get_absolute_url }}'>
+					<a href='{{ category.get_absolute_url }}' class="b-portfolio-categories-category-link">
+						<span class="b-portfolio-categories-category_mask"></span>
 						<img  class="b-portfolio-categories-category__img"src="{{ category.cover.url }}" alt="{{ category.name }}">
 					</a>
 						{% endif %}
