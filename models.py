@@ -106,7 +106,7 @@ class Project(models.Model):
 		return self.name
 
 	class Meta:
-		ordering = ['order', 'name']
+		ordering = ['order', '-created_at', 'name']
 		verbose_name = _('Project')
 		verbose_name_plural = _('Projects')
 
