@@ -63,14 +63,13 @@
 		{% for image in project.project_images.all %}
 		</figure>
 			<figure class="b-image">
-				{% thumbnail image.img "980" as im %}
+				<figcaption class='b-image__caption'>{{ image.name }}</figcaption>
+				{% thumbnail image.img "1200" as im %}
 					<img src="{{ im.url }}" alt="{{ image.name }}"  class='b-image__img'>
 				{% endthumbnail %}
 
 				{{ image.description|safe }}
-
 				</div>
-				<figcaption class='b-image__caption'>{{ image.name }}</figcaption>
 			</figure>
 		{% endfor %}
 	</div>
