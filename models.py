@@ -80,7 +80,7 @@ def icon_upload_to(instance, filename):
 class Project(models.Model):
 	name = models.CharField(verbose_name=_('Name'), max_length=256)
 	category = models.ForeignKey(Category, verbose_name=_('Category'), related_name='category_project')
-	client = models.ForeignKey(Client, verbose_name=_('Client'), blank=True, null=True)
+	client = models.ForeignKey(Client, verbose_name=_('Client'), related_name='client_projects', blank=True, null=True)
 	# SlugField
 	slug = models.CharField(verbose_name=_('Slug'), max_length=128, help_text=_('A slug is the part of a URL which identifies a page using human-readable keywords'))
 
