@@ -4,6 +4,7 @@
 
 {% block content %}
 <div class="b-wrapper m-project-view">
+	<div class="b-miracle">
 		<h1 class='b-project__title'>{{ project.name }}</h1>
 	<div class="b-project-info">
 
@@ -69,9 +70,10 @@
 				{% endthumbnail %}
 
 				{{ image.description|safe }}
-				</div>
-			</figure>
-		{% endfor %}
+					</div>
+				</figure>
+			{% endfor %}
+		</div>
 	</div>
 </div>
 </div>
