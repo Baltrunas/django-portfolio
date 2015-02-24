@@ -12,19 +12,8 @@
 		</a>
 	</figure>
 
-<div class="b-client_listOfname" style='display: block; clear: both;'>
-<div class="b-client-listOfname_cover">
-	{% for project in client.client_projects.all %}
+<div class="b-client_listOfname" style='display: block; overflow:hidden;'>
 
-	<div>
-	{% if project.cover %}
-		<a class="b-client-listOfname_link" href="{{ project.get_absolute_url }}">
-			<img src="{{ project.cover.url }}" alt="">
-		</a>
-	{% endif %}
-</div>
-	{% endfor %}
-</div>
 <div class="b-client-listOfname_descrtiption">
 	<p><b>name:</b> {{ client.name }}</p>
 	<p><b>slug:</b> {{ client.slug }}</p>
@@ -35,6 +24,19 @@
 	<!-- <p><b>sites:</b> {{ client.sites.all }}</p> -->
 	<!-- <p><b>reviews:</b> {{ client.client_reviews.all }}</p> -->
 	<!-- <p><b>public:</b> {{ client.public }}</p> -->
+</div>
+
+<div class="b-client-listOfname_cover">
+	{% for project in client.client_projects.all %}
+
+	<div class="b-project">
+	{% if project.cover %}
+		<a class="b-client-listOfname_link" href="{{ project.get_absolute_url }}">
+			<img src="{{ project.cover.url }}" alt="">
+		</a>
+	{% endif %}
+</div>
+	{% endfor %}
 </div>
 
 <!-- 	<p class="crafted m-crafted"><img src="/templates/default/img/icons/ic-data.png" width="16" alt=""> {{ client.created_at }}</p>
