@@ -2,45 +2,44 @@
 {% load i18n %}
 
 {% block content %}
-<div class="b-wrapper b-wrapp-client">
-	<h1 class='b-client__title'>{{ client.name }}</h1>
+<div class="b-wrapper">
+<div class="b-wrapper-client">
+		<div class="b-clients_logo-title">
+		<h1 class='b-client__title'>{{ client.name }}</h1>
 
-	<figure class='b-client'>
-		<a href='{{ client.get_absolute_url }}'>
-			<img src='{{ client.logo.url }}' alt='{{ client.name }}' class='b-client__logo' title='{{ client.name }}'>
-			<figcaption class='b-client__name'>{{ client.name }}</figcaption>
-		</a>
-	</figure>
+		<figure class='b-client_logo'>
+				<a href='{{ client.get_absolute_url }}'>
+					<img src='{{ client.logo.url }}' alt='{{ client.name }}' class='b-client__logo' 		title='{{ client.name }}'>
+				</a>
+		</figure>
+	</div>
 
-<div class="b-client_listOfname" style='display: block; overflow:hidden;'>
-
-<div class="b-client-listOfname_descrtiption">
-	<p><b>компания:</b> <span>{{ client.name }}</span></p>
+<!-- 	<p><b>компания:</b> <span>{{ client.name }}</span></p>
 	<p><b>слаг:</b> <span>{{ client.slug }}</span></p>
-	<p><b>логотип:</b> <span>{{ client.logo }}</span></p>
-	<p><b>описание:</b> <span>{{ client.description }}</span></p>
+	<p><b>логотип:</b> <span>{{ client.logo }}</span></p> -->
+	<p class="b-client_listOfname">{{ client.description }}</p>
+</div>
 <!-- 	<p><b>www:</b> {{ client.www }}</p> -->
 	<!-- <p><b>order:</b> {{ client.order }}</p> -->
 	<!-- <p><b>sites:</b> {{ client.sites.all }}</p> -->
 	<!-- <p><b>reviews:</b> {{ client.client_reviews.all }}</p> -->
 	<!-- <p><b>public:</b> {{ client.public }}</p> -->
-</div>
 
 <div class="b-client-listOfname_cover">
 	{% for project in client.client_projects.all %}
 
-	<div class="b-project">
+<div class="b-project">
 	{% if project.cover %}
-		<a class="b-client-listOfname_link" href="{{ project.get_absolute_url }}">
+		<a class="b-project-img" href="{{ project.get_absolute_url }}">
 			<img src="{{ project.cover.url }}" alt="">
 		</a>
 	{% endif %}
+	<a href="{{ project.get_absolute_url }}" class="b-category-project__link">посмотреть</a>
 </div>
 	{% endfor %}
 </div>
 
 <!-- 	<p class="crafted m-crafted"><img src="/templates/default/img/icons/ic-data.png" width="16" alt=""> {{ client.created_at }}</p>
 	<p class="crafted"><img src="/templates/default/img/icons/ic-data.png" width="16" alt=""> {{ client.updated_at }}</p> -->
-</div>
 </div>
 {% endblock %}
