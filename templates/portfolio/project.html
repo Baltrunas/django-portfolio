@@ -5,7 +5,7 @@
 {% block content %}
 <div class="b-wrapper m-project-view">
 	<div class="b-miracle">
-		<h1 class='b-project__title'>{{ project.name }}</h1>
+	<h1 class='b-project__title'>{{ project.name }}</h1>
 	<div class="b-project-info">
 
 		{# <p><b>{% trans "Category" %}:</b> {{ project.category }}</p> #}
@@ -59,20 +59,19 @@
 		{# <p><b>{% trans "Created At" %}:</b> {{ project.created_at }}</p> #}
 		{# <p><b>{% trans "Upadated At" %}:</b> {{ project.updated_at }}</p> #}
 
-
-	<div class='b-project-detail'>
-		{% for image in project.project_images.all %}
 		</figure>
+<div class='b-project-detail'>
+		{% for image in project.project_images.all %}
+
 			<figure class="b-image">
 				<figcaption class='b-image__caption'>{{ image.name }}</figcaption>
 				{% thumbnail image.img "1200" as im %}
 					<img src="{{ im.url }}" alt="{{ image.name }}"  class='b-image__img'>
 				{% endthumbnail %}
-
+					</figure>
 				{{ image.description|safe }}
-					</div>
-				</figure>
 			{% endfor %}
+			</div>
 		</div>
 	</div>
 </div>
