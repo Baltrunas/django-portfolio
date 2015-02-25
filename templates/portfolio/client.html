@@ -2,8 +2,7 @@
 {% load i18n %}
 
 {% block content %}
-<div class="b-wrapper">
-<div class="b-wrapper-client">
+<div class="b-wrapper m-client">
 		<div class="b-clients_logo-title">
 		<h1 class='b-client__title'>{{ client.name }}</h1>
 {% if client.logo.url %}
@@ -22,8 +21,6 @@
 	{% if client.description %}
 		<p class="b-client_description">{{ client.description }}</p>
 	{% endif %}
-
-</div>
 <!-- 	<p><b>www:</b> {{ client.www }}</p> -->
 	<!-- <p><b>order:</b> {{ client.order }}</p> -->
 	<!-- <p><b>sites:</b> {{ client.sites.all }}</p> -->
