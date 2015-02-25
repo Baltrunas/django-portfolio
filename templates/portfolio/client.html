@@ -6,18 +6,23 @@
 <div class="b-wrapper-client">
 		<div class="b-clients_logo-title">
 		<h1 class='b-client__title'>{{ client.name }}</h1>
-
+{% if client.logo.url %}
 		<figure class='b-client_logo'>
 				<a href='{{ client.get_absolute_url }}'>
 					<img src='{{ client.logo.url }}' alt='{{ client.name }}' class='b-client__logo' 		title='{{ client.name }}'>
 				</a>
 		</figure>
+{% endif %}
 	</div>
+
 
 <!-- 	<p><b>компания:</b> <span>{{ client.name }}</span></p>
 	<p><b>слаг:</b> <span>{{ client.slug }}</span></p>
 	<p><b>логотип:</b> <span>{{ client.logo }}</span></p> -->
-	<p class="b-client_listOfname">{{ client.description }}</p>
+	{% if client.description %}
+		<p class="b-client_description">{{ client.description }}</p>
+	{% endif %}
+
 </div>
 <!-- 	<p><b>www:</b> {{ client.www }}</p> -->
 	<!-- <p><b>order:</b> {{ client.order }}</p> -->
