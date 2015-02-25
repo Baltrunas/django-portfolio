@@ -4,7 +4,8 @@
 {% load thumbnail %}
 
 {% block content %}
-	<h1 class='b-clients__title'>{% trans 'Clietns' %}</h1>
+<div class="b-wrapper m-client">
+		<h1 class='b-clients__title'>{% trans 'Clietns' %}</h1>
 	<div class='b-clients'>
 	{% for client in clients %}
 		<figure class='b-client'>
@@ -35,5 +36,5 @@ description
 www
 order
 {% endcomment %}
-
+</div>
 {% endblock %}
