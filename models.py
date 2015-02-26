@@ -95,8 +95,8 @@ class Project(models.Model):
 
 	main = models.BooleanField(verbose_name=_('Main'), default=False)
 	public = models.BooleanField(verbose_name=_('Public'), default=True)
-	created_at = models.DateTimeField(verbose_name=_('Created At'), auto_now_add=True)
-	updated_at = models.DateTimeField(verbose_name=_('Updated At'), auto_now=True)
+	created_at = models.DateTimeField(verbose_name=_('Created At')) # , auto_now_add=True
+	updated_at = models.DateTimeField(verbose_name=_('Updated At')) # , auto_now=True
 
 	@models.permalink
 	def get_absolute_url(self):
