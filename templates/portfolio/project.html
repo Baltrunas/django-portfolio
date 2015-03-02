@@ -5,7 +5,6 @@
 {% block content %}
 <div class="b-wrapper m-padding">
 	<h1 class='b-project__title'>{{ project.name }}</h1>
-	<span class="b-date">создан:<i>{{ project.created_at|date:'Y-m-d' }}</i></span>
 	<div class="b-project-info">
 
 		{# <p><b>{% trans "Category" %}:</b> {{ project.category }}</p> #}
@@ -20,7 +19,7 @@
 				<p>{{ project.description }}</p>
 			{% endif %}
 		</p>
-		<time class="b-project__date">{{ project.created_at|date:"Y.m.d" }}</time>
+		<time class="b-project__date">создан:<i>{{ project.created_at|date:"Y.m.d" }}</i></time>
 		{% comment %}
 			
 			<div class="b-project-meta">
