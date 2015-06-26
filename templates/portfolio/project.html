@@ -14,11 +14,6 @@
 				<img src="{{ im.url }}" alt="" style="padding:{{ im|margin:"30x30" }}; margin-bottom: -7px;">
 			{% endthumbnail %}
 			<a href="//{{ project.www }}" class='b-project__www'>{{ project.www }}</a>
-		<p class="b-project-decription">
-			{% if project.description %}
-				<p>{{ project.description|safe }}</p>
-			{% endif %}
-		</p>
 		<time class="b-project__date">создан:<i>{{ project.created_at|date:"Y.m.d" }}</i></time>
 		{% comment %}
 			
@@ -75,6 +70,11 @@
 	</div>
 </div>
 
+		<p class="b-project-decription">
+			{% if project.description %}
+				<p>{{ project.description|safe }}</p>
+			{% endif %}
+		</p>
 
 {% comment %}
 + name
